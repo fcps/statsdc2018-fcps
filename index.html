@@ -1,0 +1,646 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Linking Violence &amp; Crime Data with Student Outcomes at School</title>
+
+	<meta name="description" content="Linking Violence & Crime Data with Student Outcomes at School">
+	<meta name="author" content="Shanshan Wang">
+	<meta name="author" content="William R. Buchanan">
+	<meta name="institution" content="Fayette County Public Schools">
+	<meta name="location" content="701 East Main Street, Lexington, KY 40502">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/simple.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+
+<div class="reveal">
+
+	<div class="slides">
+
+
+		<section>
+			<h2>Linking Violence &amp; Crime Data with Student Outcomes at School</h2><br>
+			<p>
+				<a href="https://github.com/fcpsswang">Shanshan Wang</a>
+				<a href="https://github.com/wbuchanan">Billy Buchanan</a> <br>
+				<a href="https://www.fcps.net/Domain/2284">Fayette County Public Schools (Lexington, KY)</a><br>
+				<a href="https://github.com/fcps">Grants, Research, Accountability, &amp; Data (GRAD)</a><br>
+			</p>
+			<p>Slides available at <a href="https://fcps.github.io/statsdc2018-fcps">https://bit.ly/2LkKzmq</a></p>
+		</section>
+
+
+		<!--
+			This will just be a title/intro slide for the upcoming section
+			The timing is set to automatically increment the slide after 3.5 seconds
+		-->
+		<section data-autoslide="2500">
+			<h2>Context</h2>
+		</section>
+
+		<section>
+
+
+			<section>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+		</section>
+
+		<!--
+			This will just be a title/intro slide for the upcoming section
+			The timing is set to automatically increment the slide after 3.5 seconds
+		-->
+		<section data-autoslide="2500">
+			<h2>The Problem</h2><br><br>
+		</section>
+
+
+		<!--
+			This section is for the elementary attendance zone graphs but could also be for something else
+		-->
+		<section>
+			<h2>Elementary School Attendance Zones</h2>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/elementaryCrime1213.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/elementaryCrime1314.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/elementaryCrime1415.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+		</section>
+
+
+		<!--
+			This section is for the middle school attendance zone graphs but could also be for something else
+		-->
+		<section>
+			<h2>Middle School Attendance Zones</h2>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/middleSchoolCrime1213.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/middleSchoolCrime1314.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/middleSchoolCrime1415.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+		</section>
+
+
+		<!--
+			This section is for the high school attendance zone graphs but could also be for something else
+		-->
+		<section>
+			<h2>High School Attendance Zones</h2>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/highSchoolCrime1213.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/highSchoolCrime1314.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<img style="width: 65%; margin-top: 10%;" src="img/highSchoolCrime1415.svg">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+		</section>
+
+
+		<section data-autoslide="2500">
+			<h2>Methods</h2>
+		</section>
+
+		<section>
+
+
+			<section>
+				<h3>FCPS Data</h3>
+				<p>
+					<ul>
+						<li>Student-level Daily Attendance Records<small><sup>1</sup></small></li>
+						<li>Student Demographics</li>
+						<li>School Identifiers</li>
+					</ul>
+				</p><br><br>
+				<p>
+					<small><sup>1.</sup> Attendance recorded as full day, half day, or absent.  This was recoded into Full Day vs Not-Full Day Attendance.</small>
+				</p>
+				<aside class="notes">
+					<ul>
+						<li>Student level demographic covariates: sex, race, FRL, homeless/highly mobile, retained in grade indicator, EL, SWD, &amp; grade level.</li>
+						<li>Student attendance - Absent, Half-Day Attendance, &amp; Full-Day Attendance; Recoded as Full-Day Present/Not-Full Day Present</li>
+						<li>School Name/ID used to include school level fixed effects.</li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Crime Data</h3>
+				<ul>
+					<li>Statute Descriptions</li>
+					<li>Start/End Timestamps</li>
+					<li>Address</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li>Used PostGIS (2.3.6) Tiger Geocoder to geocode the address data running PostgreSQL (9.6).</li>
+						<li>Privacy concerns create challenges with accessing and using data.</li>
+						<li>Inconsistencies in address data (e.g., same street address with different zip codes) leads to erroneous geocoding values.</li>
+						<li>Statute descriptions don't always translate to non-law enforcement personnel that easily.</li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Derived Data</h3>
+				<p>
+					<ul>
+						<li>Crime Exposure <small><sup>1</sup></small></li>
+						<li>Crime Proximity <small><sup>2</sup></small></li>
+					</ul>
+				</p><br><br>
+				<p>
+					<small><sup>1.</sup> We assume students would not be exposed to crimes that take place from 0800-1600 Monday-Friday.</small><br>
+					<small><sup>2.</sup> We used the <code>geodist</code> (Picard, 2010) package in Stata to estimate the distance from students' home addresses to the crime location.</small>
+				</p>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h3>Modeling</h3>
+				<ul>
+					<li>Logit</li>
+					<li>Random Forests</li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Modeling Challenges</h3>
+				<ul>
+					<li>Absences are relatively rare.</li>
+					<li>Multiple crimes can affect attendance decision for a given day.</li>
+					<li>Spacetime proximity != social proximity.</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Model Fit</h3>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Parameter Estimates</h3>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+		</section>
+
+
+		<section data-autoslide="2500">
+			<h2>Discussion</h2>
+		</section>
+
+
+		<section>
+
+			<section>
+				<h3>Subtitle</h3>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Subtitle</h3>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Subtitle</h3>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+		</section>
+
+
+		<section data-autoslide="2500">
+			<h2>Conclusions</h2>
+		</section>
+
+
+		<section>
+
+
+			<section>
+				<h3>Future Directions</h3>
+				<ul>
+					<li>Accumulation effects and varying rolling windows.</li>
+					<li>Estimating relationship with behavior.</li>
+					<li>Estimating relationship with test outcomes.</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Collaboration</h3>
+				<ul>
+					<li>Is your SEA/LEA interested in doing this work as well?</li>
+					<li>In addition to pre-registration, perhaps we can simultaneously replicate results across locations.</li>
+					<li>Rather than losing data internally for cross-validation, models can be cross validated across organizations.</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li>For cross validation, we only need to know what model was fitted and need to be able to apply it to local data constructed with the same business rules.</li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+			<section>
+				<h3>Feedback</h3>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
+		</section>
+
+
+	</div>
+
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    Reveal.initialize({
+
+		width : "75%",
+
+        // Display presentation control arrows
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Set default timing of 2 minutes per slide
+        defaultTiming: 120,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (video/audio/iframe)
+        // - null: Media will only autoplay if data-autoplay is present
+        // - true: All media will autoplay, regardless of individual setting
+        // - false: No media will autoplay, regardless of individual setting
+        autoPlayMedia: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+//		autoSlide: 120000,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: false,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: Reveal.navigateNext,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // Hides the address bar on mobile devices
+        hideAddressBar: true,
+
+        // Opens links in an iframe preview overlay
+        // Add `data-preview-link` and `data-preview-link="false"` to customise each link
+        // individually
+        previewLinks: false,
+
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        transitionSpeed: 'slow', // default/fast/slow
+
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Parallax background image
+        parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+        // Parallax background size
+        parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+        // Number of pixels to move the parallax background per slide
+        // - Calculated automatically unless specified
+        // - Set to 0 to disable movement along an axis
+        parallaxBackgroundHorizontal: null,
+        parallaxBackgroundVertical: null,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        markdown: {
+            smartypants: true
+        },
+
+        math: {
+            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+		dependencies: [
+
+            // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+            // Interpret Markdown in <section> elements
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+            // Syntax highlight for <code> elements
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+            // Zoom in and out with Alt+click
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+
+            // Speaker notes
+            { src: 'plugin/notes/notes.js', async: true },
+
+            // MathJax
+            { src: 'plugin/math/math.js', async: true }
+
+        ]
+
+    });
+
+</script>
+</body>
+</html>
