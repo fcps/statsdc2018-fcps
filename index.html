@@ -36,7 +36,7 @@
 		<section>
 			<h2>Linking Violence &amp; Crime Data with Student Outcomes at School</h2><br>
 			<p>
-				<a href="https://github.com/fcpsswang">Shanshan Wang</a>
+				<a href="https://github.com/fcpsswang">Shanshan Wang</a> &amp;
 				<a href="https://github.com/wbuchanan">Billy Buchanan</a> <br>
 				<a href="https://www.fcps.net/Domain/2284">Fayette County Public Schools (Lexington, KY)</a><br>
 				<a href="https://github.com/fcps">Grants, Research, Accountability, &amp; Data (GRAD)</a><br>
@@ -125,8 +125,8 @@
 				<h3>Violence and Toxic Stress</h3><br>
 				<ul>
 					<li>Shonkoff et al. (2012) documented lifelong effects from exposure to violence and adverse childhood experiences in early childhood.</li>
-					<li>Shern, Blanch, &amp; Steverman (2014) suggest identifiable externalities to individuals living with toxic stress.</li>
-					<li>Warner (2017) suggests that these effects vary by sex.</li>
+					<li>Shern, Blanch, &amp; Steverman (2014) suggested identifiable externalities to individuals living with toxic stress.</li>
+					<li>Warner (2017) suggested that these effects vary by sex.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -384,6 +384,8 @@
 					<li>Complementary Log Log</li>
 					<li>Random Forests</li>
 					<li>Fixed Effects Logit/Probit</li>
+					<li>Population Averaged Logit/Probit</li>
+					<li>Receiver Operating Curves</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -401,7 +403,7 @@
 					<li>Absences are relatively rare.</li>
 					<li>Multiple crimes can affect attendance decision for a given day.</li>
 					<li>Spacetime proximity != social proximity.</li>
-					<li>Limited model fit statistics for GLMM.</li>
+					<li>Limited model fit statistics for Mixed Effects GLM.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -445,8 +447,85 @@
 					</ul>
 				</aside>
 			</section>
-
-
+			<section>
+				<h3>ROC Curve: Grade 6 students</h3>
+				<img style="width: 50%; margin-top: 2.5%;" src="img/Grade6.png">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>ROC Curve: All students</h3>
+				<img style="width: 50%; margin-top: 2.5%;" src="img/GradeAll.png">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>Correlation</h3>
+				<img style="width: 80%; margin-top: 2.5%;" src="img/feat_corr_to_attnd.png">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>Model Diagnostics</h3>
+				<div style="width: 100%;">
+					<img style="width: 45%; margin: 0%;padding: 0px;" src="img/raw_sorted_distance_plot_limit_to_20.png">
+					<img style="width: 45%; margin: 0%; padding: 0px;" src="img/raw_distance_density_plot.png">
+				</div>
+						
+				
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>Model Diagnostics</h3>
+				<div style="width: 100%;">
+					<img style="width: 30%; margin: 0%;padding: 0px;" src="img/Attendence_by_el.png">
+					<img style="width: 30%; margin: 0%; padding: 0px;" src="img/Attendence_by_frl.png">
+				</div>
+						
+				<div style="width: 100%;">
+					<img style="width: 30%; margin: 0%;" src="img/Attendence_by_race.png">
+					<img style="width: 30%; margin: 0%;" src="img/Attendence_by_sex.png">
+				</div>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>ROC Curve</h3>
+				<img style="width: 50%; margin-top: 2.5%;" src="img/RF_roc_curve.png">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
 		</section>
 
 
@@ -455,7 +534,7 @@
 		</section>
 
 		<section>
-			<h2></h2>
+			<h2>Need some discussion points</h2>
 			<section>
 				<h3>Subtitle</h3>
 				<ul>
@@ -564,6 +643,8 @@
 
 
 		</section>
+
+		
 		<section style="font-size: smaller;">
 			<h2>References</h2>
 			<ul>
