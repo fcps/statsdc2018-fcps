@@ -417,11 +417,7 @@
 
 			<section>
 				<h3>Model Fit</h3>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<img style="width: 50%; margin-top: 0%;" src="img/RF_roc_curve.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -429,49 +425,22 @@
 						<li></li>
 					</ul>
 				</aside>
-			</section>
-
-
-			<section>
-				<h3>Parameter Estimates</h3>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-			<section>
-				<h3>ROC Curve: Grade 6 students</h3>
-				<img style="width: 50%; margin-top: 2.5%;" src="img/Grade6.png">
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-			<section>
-				<h3>ROC Curve: All students</h3>
-				<img style="width: 50%; margin-top: 2.5%;" src="img/GradeAll.png">
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
+			</section>		
+			
 			<section>
 				<h3>Correlation</h3>
 				<img style="width: 80%; margin-top: 2.5%;" src="img/feat_corr_to_attnd.png">
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>Feature Importance</h3>
+				<img style="width: 40%; margin-top: 0%;" src="img/feature_importance.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -499,13 +468,13 @@
 			<section>
 				<h3>Model Diagnostics</h3>
 				<div style="width: 100%;">
-					<img style="width: 30%; margin: 0%;padding: 0px;" src="img/Attendence_by_el.png">
-					<img style="width: 30%; margin: 0%; padding: 0px;" src="img/Attendence_by_frl.png">
+					<img style="width: 25%; margin: 0%;padding: 0px;" src="img/Absence_by_el.png">
+					<img style="width: 25%; margin: 0%; padding: 0px;" src="img/Absence_by_sex.png">
 				</div>
 						
 				<div style="width: 100%;">
-					<img style="width: 30%; margin: 0%;" src="img/Attendence_by_race.png">
-					<img style="width: 30%; margin: 0%;" src="img/Attendence_by_sex.png">
+					<img style="width: 25%; margin: 0%;" src="img/Absence_by_hhm.png">
+					<img style="width: 25%; margin: 0%;" src="img/Absence_by_frl.png">
 				</div>
 				<aside class="notes">
 					<ul>
@@ -516,8 +485,8 @@
 				</aside>
 			</section>
 			<section>
-				<h3>ROC Curve</h3>
-				<img style="width: 50%; margin-top: 2.5%;" src="img/RF_roc_curve.png">
+				<h3>Model Diagnostics</h3>
+				<img style="width: 40%; margin-top: 0%;" src="img/Absence_by_race.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -526,6 +495,7 @@
 					</ul>
 				</aside>
 			</section>
+			
 		</section>
 
 
@@ -534,13 +504,13 @@
 		</section>
 
 		<section>
-			<h2>Need some discussion points</h2>
+			
 			<section>
-				<h3>Subtitle</h3>
+				<h3>Important features</h3>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Proximity to crime seems to be an important feature (e.g., minimum distance to a crime) in predicting student absence.</li>
+					<li>Male students are more likely to be absent than female students. </li>
+					<li>Economically disadvantaged students are more likely to be absent compared with their counterparts.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -553,11 +523,11 @@
 
 
 			<section>
-				<h3>Subtitle</h3>
+				<h3>Ucaptured random noise</h3>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Absence due to illness and/or family emergency</li>
+					<li>Long-term accumulative effects</li>
+					<li>Seasonality effects</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -570,11 +540,10 @@
 
 
 			<section>
-				<h3>Subtitle</h3>
+				<h3>Complex data structure</h3>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Multiple time dimensions</li>
+					<li>School-level effects</li>			
 				</ul>
 				<aside class="notes">
 					<ul>
