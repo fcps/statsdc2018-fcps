@@ -304,11 +304,11 @@
 		</section>
 
 		<section data-autoslide="2500">
-			<h2>Methods</h2>
+			<h2>The Data</h2>
 		</section>
 
 		<section>
-			<h2></h2>
+
 			<section>
 				<h3>FCPS Data</h3>
 				<ul>
@@ -324,7 +324,6 @@
 					</ul>
 				</aside>
 			</section>
-
 
 			<section>
 				<h3>Crime Data</h3>
@@ -359,7 +358,6 @@
 				</aside>
 			</section>
 
-
 			<section>
 				<h3>Derived Data</h3>
 				<ul>
@@ -378,13 +376,21 @@
 				</aside>
 			</section>
 
+		</section>
+
+		<section data-autoslide="2500">
+			<h2>Methods</h2>
+		</section>
+
+		<section>
+
 			<section>
 				<h3>Modeling</h3>
 				<ul>
 					<li>Complementary Log Log</li>
 					<li>Random Forests</li>
 					<li>Fixed Effects Logit/Probit</li>
-					<li>Population Averaged Logit/Probit</li>
+					<li>Pooled Logit/Probit</li>
 					<li>Receiver Operating Curves</li>
 				</ul>
 				<aside class="notes">
@@ -400,31 +406,36 @@
 			<section>
 				<h3>Modeling Challenges</h3>
 				<ul>
-					<li>Absences are relatively rare.</li>
-					<li>Multiple crimes can affect attendance decision for a given day.</li>
-					<li>Spacetime proximity != social proximity.</li>
-					<li>Limited model fit statistics for Mixed Effects GLM.</li>
+					<li>Absences are rare.</li>
+					<li>Multiple crimes can affect attendance decision simultaneously.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
-						<li></li>
-						<li></li>
+						<li>Spacetime proximity != social proximity.</li>
+						<li>Limited model fit statistics for Mixed Effects GLM.</li>
 						<li></li>
 					</ul>
 				</aside>
 			</section>
 
+		</section>
+
+		<section data-autoslide="2500">
+			<h2>Results</h2>
+		</section>
+
+		<section>
 
 			<section>
 				<h3>Model Fit</h3>
 				<ul>
-					<li></li>
+					<li>[Find citation]Typically random forests out perform logit models.</li>
 					<li></li>
 					<li></li>
 				</ul>
 				<aside class="notes">
 					<ul>
-						<li></li>
+						<li>Ours is not the typical case.</li>
 						<li></li>
 						<li></li>
 					</ul>
@@ -447,6 +458,11 @@
 					</ul>
 				</aside>
 			</section>
+
+
+			<!--
+				What purpose is served by displaying these ROC curves?
+
 			<section>
 				<h3>ROC Curve: Grade 6 students</h3>
 				<img style="width: 50%; margin-top: 2.5%;" src="img/Grade6.png">
@@ -469,6 +485,12 @@
 					</ul>
 				</aside>
 			</section>
+			-->
+
+
+			<!--
+			    What is the story that you are trying to tell with these visualizations?
+			-->
 			<section>
 				<h3>Correlation</h3>
 				<img style="width: 80%; margin-top: 2.5%;" src="img/feat_corr_to_attnd.png">
@@ -480,14 +502,16 @@
 					</ul>
 				</aside>
 			</section>
+
+			<!--
+				What is the story that you are trying to tell with these visualizations?
+			-->
 			<section>
 				<h3>Model Diagnostics</h3>
 				<div style="width: 100%;">
 					<img style="width: 45%; margin: 0%;padding: 0px;" src="img/raw_sorted_distance_plot_limit_to_20.png">
 					<img style="width: 45%; margin: 0%; padding: 0px;" src="img/raw_distance_density_plot.png">
 				</div>
-						
-				
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -496,6 +520,9 @@
 					</ul>
 				</aside>
 			</section>
+
+			<!--
+				What school year are these results from?
 			<section>
 				<h3>Model Diagnostics</h3>
 				<div style="width: 100%;">
@@ -515,6 +542,11 @@
 					</ul>
 				</aside>
 			</section>
+			-->
+
+			<!--
+				This ROC at least provides visual information that could be used to tell some type of a story
+			-->
 			<section>
 				<h3>ROC Curve</h3>
 				<img style="width: 50%; margin-top: 2.5%;" src="img/RF_roc_curve.png">
@@ -568,23 +600,6 @@
 				</aside>
 			</section>
 
-
-			<section>
-				<h3>Subtitle</h3>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-
 		</section>
 
 
@@ -592,9 +607,7 @@
 			<h2>Conclusions</h2>
 		</section>
 
-
 		<section>
-
 
 			<section>
 				<h3>Future Directions</h3>
@@ -629,7 +642,6 @@
 				</aside>
 			</section>
 
-
 			<section>
 				<h2>Feedback &amp; Questions</h2>
 				<aside class="notes">
@@ -641,10 +653,8 @@
 				</aside>
 			</section>
 
-
 		</section>
 
-		
 		<section style="font-size: smaller;">
 			<h2>References</h2>
 			<ul>
