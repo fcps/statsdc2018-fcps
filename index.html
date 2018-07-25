@@ -314,6 +314,11 @@
 				<ul>
 					<li>Student-level Daily Attendance Records</li>
 					<li>Student Demographics</li>
+					<ul>
+						<li>race, sex, grade, EL status, FRL, Special Education</li>
+						<li>homeless/highly mobile indicator</li>
+						<li>repeated grade indicator</li>
+					</ul>
 					<li>School Identifiers</li>
 				</ul>
 				<aside class="notes">
@@ -343,9 +348,28 @@
 			</section>
 
 			<section>
+				<h3>Derived Data</h3>
+				<ul>
+					<li>Crime Exposure</li>
+					<li>Crime Proximity</li>
+					<li>Attendance Day of Week Indicators</li>
+					<li>Rolling Sum of Crimes</li>
+					<li>Crimes within Geospatial Buffers (e.g., 0.5, 1, &amp; 2mi)</li>
+					<li>Minimum distances within Rolling Sums</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li>We assume students would not be exposed to crimes that take place from 0800-1600 Monday-Friday.</li>
+						<li>We used the <code>geodist</code> (Picard, 2010) package in Stata to estimate the distance from students' home addresses to the crime location.</li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
 				<h3>Data Preparation</h3>
 				<ul>
-					<li>Crime data lag attendance data by 1 day.</li>
+					<li style="text-decoration: underline;"><strong style="color: darkorange;"><em>Crime data lag attendance data by 1 day.</em></strong></li>
 					<li>Statutory descriptions reclassified from 309 to 5 distinct values.</li>
 					<li>Standardized the proximity measure to avoid scale-based artifacts.</li>
 				</ul>
@@ -353,24 +377,6 @@
 					<ul>
 						<li></li>
 						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-
-			<section>
-				<h3>Derived Data</h3>
-				<ul>
-					<li>Crime Exposure</li>
-					<li>Crime Proximity</li>
-					<li>Day of Week Indicators</li>
-					<li>Rolling Averages</li>
-					<li>Geospatial Buffer Aggregations</li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li>We assume students would not be exposed to crimes that take place from 0800-1600 Monday-Friday.</li>
-						<li>We used the <code>geodist</code> (Picard, 2010) package in Stata to estimate the distance from students' home addresses to the crime location.</li>
 						<li></li>
 					</ul>
 				</aside>
@@ -385,34 +391,45 @@
 		<section>
 
 			<section>
-				<h3>Modeling</h3>
-				<ul>
-					<li>Complementary Log Log</li>
-					<li>Random Forests</li>
-					<li>Fixed Effects Logit/Probit</li>
-					<li>Pooled Logit/Probit</li>
-					<li>Receiver Operating Curves</li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li>From the 13-14 dataset roughly 6% of the events are absences of some form.</li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-
-
-			<section>
 				<h3>Modeling Challenges</h3>
 				<ul>
 					<li>Absences are rare.</li>
 					<li>Multiple crimes can affect attendance decision simultaneously.</li>
+					<li>Multiple time dimensions.</li>
+					<li>Computational cost for estimating models with Mixed Effects is prohibitive.</li>
+					<li>Data are too large for the most popular SVM libraries.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
 						<li>Spacetime proximity != social proximity.</li>
 						<li>Limited model fit statistics for Mixed Effects GLM.</li>
+						<li>Multiple spatial relationships per day</li>
+						<li>Additional time dimension per day.</li>
+						<li>When all of the school and other effects are parameterized individually, the matrix is something like 10M x 100</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h3>Model Fitting</h3>
+				<ul>
+					<li>Random Forests</li>
+					<li>Complementary Log Log</li>
+					<li>Pooled Logit/Probit</li>
+					<li>Fixed Effects Logit</li>
+					<li>Receiver Operating Curves</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li>Talk about how we used these different models to address the challenges from the previous slide:</li>
+						<ul>
+							<li>Absences are rare.</li>
+							<li>Multiple crimes can affect attendance decision simultaneously.</li>
+							<li>Multiple time dimensions.</li>
+							<li>Computational cost for estimating models with Mixed Effects is prohibitive.</li>
+							<li>Data are too large for the most popular SVM libraries.</li>
+						</ul>
+						<li></li>
 						<li></li>
 					</ul>
 				</aside>
@@ -427,12 +444,12 @@
 		<section>
 
 			<section>
-				<h3>Model Fit</h3>
+				<h3>Random Forest</h3>
+				<h4>Model Fit</h4>
 				<ul>
-					<li>[Find citation]Typically random forests out perform logit models.</li>
-					<li></li>
-					<li></li>
+					<li>Random Forest > Logit in typical cases.</li>
 				</ul>
+				<img style="width: 50%; margin-top: 0%;" src="img/RF_roc_curve.png">
 				<aside class="notes">
 					<ul>
 						<li>Ours is not the typical case.</li>
@@ -440,16 +457,12 @@
 						<li></li>
 					</ul>
 				</aside>
-			</section>
-
-
+			</section>		
+			
 			<section>
-				<h3>Parameter Estimates</h3>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<h3>Random Forest</h3>
+				<h4>Correlations</h4>
+				<img style="width: 80%; margin-top: 2.5%;" src="img/feat_corr_to_attnd.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -458,42 +471,15 @@
 					</ul>
 				</aside>
 			</section>
-
-
-			<!--
-				What purpose is served by displaying these ROC curves?
-
-			<section>
-				<h3>ROC Curve: Grade 6 students</h3>
-				<img style="width: 50%; margin-top: 2.5%;" src="img/Grade6.png">
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-			<section>
-				<h3>ROC Curve: All students</h3>
-				<img style="width: 50%; margin-top: 2.5%;" src="img/GradeAll.png">
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-			-->
 
 
 			<!--
 			    What is the story that you are trying to tell with these visualizations?
 			-->
 			<section>
-				<h3>Correlation</h3>
-				<img style="width: 80%; margin-top: 2.5%;" src="img/feat_corr_to_attnd.png">
+				<h3>Random Forest</h3>
+				<h4>Feature Importance</h4>
+				<img style="width: 40%; margin-top: 0%;" src="img/feature_importance.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -507,7 +493,8 @@
 				What is the story that you are trying to tell with these visualizations?
 			-->
 			<section>
-				<h3>Model Diagnostics</h3>
+				<h3>Random Forest</h3>
+				<h4>Model Diagnostics</h4>
 				<div style="width: 100%;">
 					<img style="width: 45%; margin: 0%;padding: 0px;" src="img/raw_sorted_distance_plot_limit_to_20.png">
 					<img style="width: 45%; margin: 0%; padding: 0px;" src="img/raw_distance_density_plot.png">
@@ -522,34 +509,12 @@
 			</section>
 
 			<!--
-				What school year are these results from?
-			<section>
-				<h3>Model Diagnostics</h3>
-				<div style="width: 100%;">
-					<img style="width: 30%; margin: 0%;padding: 0px;" src="img/Attendence_by_el.png">
-					<img style="width: 30%; margin: 0%; padding: 0px;" src="img/Attendence_by_frl.png">
-				</div>
-						
-				<div style="width: 100%;">
-					<img style="width: 30%; margin: 0%;" src="img/Attendence_by_race.png">
-					<img style="width: 30%; margin: 0%;" src="img/Attendence_by_sex.png">
-				</div>
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-			-->
-
-			<!--
 				This ROC at least provides visual information that could be used to tell some type of a story
 			-->
 			<section>
-				<h3>ROC Curve</h3>
-				<img style="width: 50%; margin-top: 2.5%;" src="img/RF_roc_curve.png">
+				<h3>Random Forest</h3>
+				<h4>Model Diagnostics</h4>
+				<img style="width: 40%; margin-top: 0%;" src="img/Absence_by_race.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -558,6 +523,93 @@
 					</ul>
 				</aside>
 			</section>
+
+			<section>
+				<h3>GLM</h3>
+				<h4></h4>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h3>GLM</h3>
+				<h4></h4>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h3>GLM</h3>
+				<h4></h4>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h3>GLM</h3>
+				<h4></h4>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h3>GLM</h3>
+				<h4></h4>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+
 		</section>
 
 
@@ -566,13 +618,13 @@
 		</section>
 
 		<section>
-			<h2>Need some discussion points</h2>
+			
 			<section>
-				<h3>Subtitle</h3>
+				<h3>Important features</h3>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Proximity to crime seems to be an important feature (e.g., minimum distance to a crime) in predicting student absence.</li>
+					<li>Male students are more likely to be absent than female students. </li>
+					<li>Economically disadvantaged students are more likely to be absent compared with their counterparts.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -585,15 +637,14 @@
 
 
 			<section>
-				<h3>Subtitle</h3>
+				<h3>Unmodeled Variables</h3>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Long-term cumulative effects</li>
+					<li>Seasonality effects</li>
 				</ul>
 				<aside class="notes">
 					<ul>
-						<li></li>
+						<li>Absence due to illness and/or family emergency</li>
 						<li></li>
 						<li></li>
 					</ul>
