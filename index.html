@@ -201,15 +201,16 @@
 
 		<section>
 			<section>
-				<h3>Violence and Toxic Stress</h3><br>
+				<h3>Violence and Toxic Stress</h3>
 				<ul>
-					<li>Shonkoff et al. (2012) documented lifelong effects from exposure to violence and adverse childhood experiences in early childhood.</li>
-					<li>Shern, Blanch, &amp; Steverman (2014) suggested identifiable externalities to individuals living with toxic stress.</li>
-					<li>Warner (2017) suggested that these effects vary by sex.</li>
+					<li>Shonkoff et al. (2012) find negative effects of toxic stress persist into adulthood.</li>
+					<li>Shern, Blanch, &amp; Steverman (2014) find detectable negative externalities from toxic stress.</li>
+					<li>Warner (2017) suggests that the effect of toxic stress is more severe for women.</li>
+					<li>Our <a href="https://www.fcps.net/advisorycouncil">District Safety Advisory Council</a> developed a <a href="https://www.fcps.net/cms/lib/KY01807169/Centricity/Domain/4/2018-19/safety_points.pdf">school safety plan</a> that implicitly acknowledges these effects.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
-						<li></li>
+						<li>Shonkoff et al posit that many adult health issues are manifestations of persistent conditions caused by prolonged exposure to toxic stress beginning in early childhood.</li>
 						<li></li>
 						<li></li>
 					</ul>
@@ -414,11 +415,11 @@
 				<ul>
 					<li>Statute Descriptions</li>
 					<li>Start/End Timestamps</li>
-					<li>Address of Crime</li>
+					<li>Crime Location</li>
 				</ul>
 				<aside class="notes">
 					<ul>
-						<li>Used PostGIS (2.3.6) Tiger Geocoder to geocode the address data running PostgreSQL (9.6).</li>
+						<li>Used PostGIS (2.3.6) Tiger Geocoder to geocode the location data running PostgreSQL (9.6).</li>
 						<li>Privacy concerns create challenges with accessing and using data.</li>
 						<li>Inconsistencies in address data (e.g., same street address with different zip codes) leads to erroneous geocoding values.</li>
 						<li>Statute descriptions don't always translate to non-law enforcement personnel that easily.</li>
@@ -440,7 +441,7 @@
 					<ul>
 						<li>We assume students would not be exposed to crimes that take place from 0800-1600 Monday-Friday.</li>
 						<li>We used the <code>geodist</code> (Picard, 2010) package in Stata to estimate the distance from students' home addresses to the crime location.</li>
-						<li></li>
+						<li>Day of week indicators to adjust estimates for students being more likely to be absent on Mondays/Fridays.</li>
 					</ul>
 				</aside>
 			</section>
@@ -475,8 +476,8 @@
 					<li>Absences are rare.</li>
 					<li>Multiple crimes can affect attendance decision simultaneously.</li>
 					<li>Multiple time dimensions.</li>
-					<li>Computational cost for estimating models with Mixed Effects is prohibitive.</li>
-					<li>Data are too large for the most popular SVM libraries.</li>
+					<li>Computational cost for estimating models with many levels can be prohibitive.</li>
+					<li>Some machine learning algorthims are too inefficient for usage.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -485,6 +486,7 @@
 						<li>Multiple spatial relationships per day</li>
 						<li>Additional time dimension per day.</li>
 						<li>When all of the school and other effects are parameterized individually, the matrix is something like 10M x 100</li>
+						<li>LibSVM chokes when using the current data.</li>
 					</ul>
 				</aside>
 			</section>
@@ -493,9 +495,17 @@
 				<h3>Model Fitting</h3><br>
 				<ul>
 					<li>Random Forests</li>
-					<li>Complementary Log Log</li>
-					<li>Pooled Logit/Probit</li>
-					<li>Fixed Effects Logit</li>
+					<li>Generalized Linear Model (GLM)</li>
+					<ul>
+						<li>Pooled estimators</li>
+						<ul>
+							<li>Complementary Log Log</li>
+							<li>Logit</li>
+							<li>Probit</li>
+						</ul>
+						<li>Fixed Effects Logit</li>
+						<li>Random Effects Complementary Log Log</li>
+					</ul>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -524,11 +534,11 @@
 			<section>
 				<h3>Random Forest</h3>
 				<h4>Model Fit</h4>
-				<ul>
-					<li>Random Forest > Logit in typical cases.</li>
-				</ul>
-				<img style="width: 50%; margin-top: 0%;" src="img/RF_roc_curve.png">
+				<img style="width: 40%; margin-top: 0%;" src="img/RF_roc_curve.png">
 				<aside class="notes">
+					<ul>
+						<li>Random Forest > Logit in typical cases.</li>
+					</ul>
 					<ul>
 						<li>Ours is not the typical case.</li>
 						<li></li>
@@ -540,7 +550,7 @@
 			<section>
 				<h3>Random Forest</h3>
 				<h4>Correlations</h4>
-				<img style="width: 80%; margin-top: 2.5%;" src="img/feat_corr_to_attnd.png">
+				<img style="width: 70%; margin-top: 2.5%;" src="img/feat_corr_to_attnd.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -557,7 +567,7 @@
 			<section>
 				<h3>Random Forest</h3>
 				<h4>Feature Importance</h4>
-				<img style="width: 40%; margin-top: 0%;" src="img/feature_importance.png">
+				<img style="width: 30%; margin-top: 0%;" src="img/feature_importance.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -573,10 +583,12 @@
 			<section>
 				<h3>Random Forest</h3>
 				<h4>Model Diagnostics</h4>
-				<div style="width: 100%;">
-					<img style="width: 45%; margin: 0%;padding: 0px;" src="img/raw_sorted_distance_plot_limit_to_20.png">
-					<img style="width: 45%; margin: 0%; padding: 0px;" src="img/raw_distance_density_plot.png">
-				</div>
+					<!--
+					<div style="width: 100%;">
+						<img style="width: 45%; margin: 0%;padding: 0px;" src="img/raw_sorted_distance_plot_limit_to_20.png">
+					</div>
+					-->
+				<img style="width: 40%; margin: 0%; padding: 0px;" src="img/raw_distance_density_plot.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -601,15 +613,67 @@
 					</ul>
 				</aside>
 			</section>
+		</section>
+
+
+		<section>
+			<section>
+				<h3>GLM</h3>
+				<h4>Model Fit</h4>
+				<ul>
+					<li>GLM models all had AUC > 0.5</li>
+					<li>Some models lack established GOF measures.</li>
+					<li>Within grade models perform poorly in grades 3-6.</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li>Within grade models don't classify any absences in grades 3-6, but improve across grade levels.</li>
+						<li>Mixed Effects models don't have any way to test GOF or quantify how well the model fits.</li>
+						<li>The AUC is primarily a function of correctly classifying attendances.</li>
+					</ul>
+				</aside>
+			</section>
 
 			<section>
 				<h3>GLM</h3>
-				<h4></h4>
+				<h4>Parameter Estimates</h4>
 				<ul>
-					<li></li>
-					<li></li>
+					<li>Estimated relationships are consistently small.</li>
+					<li>Both type of violent crime and proximity have expected relationships.</li>
+					<li>The estimated relationship with the type of crime varies.</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li>Small variances in majority of parameter estimates</li>
+						<li></li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h3>GLM</h3>
+				<h4>Model Diagnostics</h4>
+				<ul>
+					<li>Greater classification inconsistencies with the rare events.</li>
+					<li>Hosmer-Lemeshow tests indicate good model fit.</li>
 					<li></li>
 				</ul>
+				<aside class="notes">
+					<ul>
+						<li>Absences only correctly classified </li>
+						<li>Hosmer-Lemeshow might also be a function of attended days.</li>
+						<li></li>
+					</ul>
+				</aside>
+			</section>
+
+			<!--
+				ROC
+			-->
+			<section>
+				<h3>GLM</h3>
+				<img style="width: 40%;" src="img/.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -619,14 +683,12 @@
 				</aside>
 			</section>
 
+			<!--
+				ROC
+			-->
 			<section>
 				<h3>GLM</h3>
-				<h4></h4>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<img style="width: 40%;" src="img/.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -636,14 +698,12 @@
 				</aside>
 			</section>
 
+			<!--
+				ROC
+			-->
 			<section>
 				<h3>GLM</h3>
-				<h4></h4>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<img style="width: 40%;" src="img/.png">
 				<aside class="notes">
 					<ul>
 						<li></li>
@@ -652,41 +712,6 @@
 					</ul>
 				</aside>
 			</section>
-
-			<section>
-				<h3>GLM</h3>
-				<h4></h4>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-
-			<section>
-				<h3>GLM</h3>
-				<h4></h4>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-
 
 		</section>
 
@@ -743,7 +768,7 @@
 			<section>
 				<h3>Future Directions</h3>
 				<ul>
-					<li>Kernel weighted panel modeling</li>
+					<li>Kernel weighted averaging of crimes by proximity.</li>
 					<li>Accumulation effects and varying rolling windows.</li>
 					<li>Additional exploratory work to optimize predictive power of models.</li>
 					<li>Estimating relationship with behavior.</li>
