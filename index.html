@@ -45,6 +45,19 @@
 		</section>
 
 
+		<section data-autoslide="2500">
+			<h2>Disclaimer/Session Norms</h2>
+		</section>
+
+		<section>
+			<ul>
+				<li>This work is exploratory in nature.</li>
+				<li>We are still very early in the process of modeling/exploring the data.</li>
+				<li>If you have a question, do not wait to ask it.</li>
+				<li>No one is doing this work, we expect questions and prefer the session to be more of a dialog.</li>
+			</ul>
+		</section>
+
 		<!--
 			This will just be a title/intro slide for the upcoming section
 			The timing is set to automatically increment the slide after 3.5 seconds
@@ -188,8 +201,11 @@
 			<section data-autoslide="2500">
 				<h2>We are going to focus on externalities.</h2>
 				<aside class="notes">
+					<p>Ask audience if anyone has a back ground in econ.  If they do, ask that audience member to try
+						explaining externalities to everyone else.</p>
 					<ul>
 						<li>Explain the concept of externalities for non-economists.</li>
+						<li>Make the connection between externalities and education as a public good.</li>
 					</ul>
 					<p>An externality is a positive or negative consequence of an economic activity experienced by
 						unrelated third parties. Pollution emitted by a factory that spoils the surrounding environment
@@ -247,14 +263,14 @@
 					</tbody>
 				</table>
 				<aside class="notes">
-					<p>
-						<small><sup>1. </sup> Results based on searching <a href="https://scholar.google.com/scholar?q=mental+health+stigma&hl=en&as_sdt=0%2C18&as_ylo=2017&as_yhi=2018">"mental health stigma"</a> in Google Scholar.</small>
-					</p>
 					<ul>
 						<li>The National Alliance on Mental Illness suggests that <a href="https://www.nami.org/stigma">20% of Americans affected by mental health conditions do not seek help</a>.</li>
 						<li>Just this week, the House voted on <a href="https://www.congress.gov/bill/115th-congress/house-bill/2345/text">H.R.2345</a> in an effort to make mental health care more accessible.</li>
 						<li>Why would we expect children to reach out for help, when their innate response could be labeled a disorder?</li>
 					</ul>
+					<p>
+						<small><sup>1. </sup> Results based on searching <a href="https://scholar.google.com/scholar?q=mental+health+stigma&hl=en&as_sdt=0%2C18&as_ylo=2017&as_yhi=2018">"mental health stigma"</a> in Google Scholar.</small>
+					</p>
 				</aside>
 			</section>
 
@@ -475,9 +491,8 @@
 				<ul>
 					<li>Absences are rare.</li>
 					<li>Multiple crimes can affect attendance decision simultaneously.</li>
-					<li>Multiple time dimensions.</li>
-					<li>Computational cost for estimating models with many levels can be prohibitive.</li>
-					<li>Some machine learning algorthims are too inefficient for usage.</li>
+					<li>Some machine learning algorthims require too many compute resources.</li>
+					<li>The computational cost of complex multilevel models is also prohibitive.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -504,7 +519,7 @@
 							<li>Probit</li>
 						</ul>
 						<li>Fixed Effects Logit</li>
-						<li>Random Effects Complementary Log Log</li>
+						<li>Mixed Effects Complementary Log Log</li>
 					</ul>
 				</ul>
 				<aside class="notes">
@@ -657,7 +672,7 @@
 				<ul>
 					<li>Greater classification inconsistencies with the rare events.</li>
 					<li>Hosmer-Lemeshow tests indicate good model fit.</li>
-					<li></li>
+					<li>Models with assymetric sigmoid seem to do slightly better at detecting the rare events.</li>
 				</ul>
 				<aside class="notes">
 					<ul>
@@ -670,7 +685,6 @@
 
 			<!--
 				ROC
-			-->
 			<section>
 				<h3>GLM</h3>
 				<img style="width: 40%;" src="img/.png">
@@ -682,10 +696,10 @@
 					</ul>
 				</aside>
 			</section>
+			-->
 
 			<!--
 				ROC
-			-->
 			<section>
 				<h3>GLM</h3>
 				<img style="width: 40%;" src="img/.png">
@@ -697,10 +711,10 @@
 					</ul>
 				</aside>
 			</section>
+			-->
 
 			<!--
 				ROC
-			-->
 			<section>
 				<h3>GLM</h3>
 				<img style="width: 40%;" src="img/.png">
@@ -712,12 +726,13 @@
 					</ul>
 				</aside>
 			</section>
+			-->
 
 		</section>
 
 
 		<section data-autoslide="2500">
-			<h2>Discussion</h2>
+			<h2>Conclusions</h2>
 		</section>
 
 		<section>
@@ -725,7 +740,8 @@
 			<section>
 				<h3>Important features</h3>
 				<ul>
-					<li>Proximity to crime has some relationship with student attendance.</li>
+					<li>Proximity to crime seems to have some relationship with student attendance.</li>
+					<li>The relationship also varies based on the type of violent crime.</li>
 					<li>Male students are more likely to be absent than female students. </li>
 					<li>Economically disadvantaged students are more likely to be absent compared with their counterparts.</li>
 				</ul>
@@ -756,19 +772,10 @@
 				</aside>
 			</section>
 
-		</section>
-
-
-		<section data-autoslide="2500">
-			<h2>Conclusions</h2>
-		</section>
-
-		<section>
-
 			<section>
 				<h3>Future Directions</h3>
 				<ul>
-					<li>Kernel weighted averaging of crimes by proximity.</li>
+					<li>Kernel weighted average proximity of crimes.</li>
 					<li>Accumulation effects and varying rolling windows.</li>
 					<li>Additional exploratory work to optimize predictive power of models.</li>
 					<li>Estimating relationship with behavior.</li>
@@ -783,7 +790,6 @@
 				</aside>
 			</section>
 
-
 			<section>
 				<h3>Collaboration</h3>
 				<ul>
@@ -797,17 +803,6 @@
 						<li>Sharing statistical models is inherently secure since the only "data" are parameter estimates and VCE.</li>
 						<li>For cross validation, we only need to know what model was fitted and need to be able to apply it to local data constructed with the same business rules.</li>
 						<li>There's a lot of room on the GitHub train and it would be great if others grabbed a seat.</li>
-						<li></li>
-					</ul>
-				</aside>
-			</section>
-
-			<section>
-				<h2>Feedback &amp; Questions</h2>
-				<aside class="notes">
-					<ul>
-						<li></li>
-						<li></li>
 						<li></li>
 					</ul>
 				</aside>
