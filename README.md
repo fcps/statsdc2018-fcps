@@ -1,5 +1,7 @@
 # Wang, S., & Buchanan, W. R. (2018). Linking Violence & Crime Data with Student Outcomes at School.
 
+# [Click here to view the slides](https://fcps.github.io/statsdc2018-fcps)
+
 # STATS-DC 2018 Conference Slide Deck
 
 ## Location & Time Information
